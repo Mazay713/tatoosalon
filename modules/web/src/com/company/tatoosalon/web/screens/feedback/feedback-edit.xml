@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://feedbackEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.tatoosalon.web.screens.feedback">
+    <data>
+        <instance id="feedbackDc"
+                  class="com.company.tatoosalon.entity.Feedback">
+            <view extends="_local">
+                <property name="registration_id" view="_local"/>
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="feedbackDc">
+            <column width="350px">
+                <textField id="estimationField" property="estimation"/>
+                <pickerField id="registration_idField" property="registration_id">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <textField id="contentField" property="content"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

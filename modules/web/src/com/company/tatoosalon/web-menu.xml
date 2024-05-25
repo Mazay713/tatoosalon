@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-tatoosalon" insertBefore="administration" caption="mainMsg://menu_config.application-tatoosalon">
+        <item screen="tatoosalon_Client.browse" caption="mainMsg://menu_config.tatoosalon_Client.browse"/>
+        <item screen="tatoosalon_Registration.browse" caption="mainMsg://menu_config.tatoosalon_Registration.browse"/>
+        <item screen="tatoosalon_Employee.browse" caption="mainMsg://menu_config.tatoosalon_Employee.browse"/>
+        <item screen="tatoosalon_Feedback.browse" caption="mainMsg://menu_config.tatoosalon_Feedback.browse"/>
+        <item screen="tatoosalon_Registration_Service.browse"
+              caption="mainMsg://menu_config.tatoosalon_Registration_Service.browse"/>
+        <item screen="tatoosalon_Photo.browse" caption="mainMsg://menu_config.tatoosalon_Photo.browse"/>
+        <item screen="tatoosalon_Portfolio.browse" caption="mainMsg://menu_config.tatoosalon_Portfolio.browse"/>
+        <item screen="tatoosalon_Service.browse" caption="mainMsg://menu_config.tatoosalon_Service.browse"/>
+        <item screen="tatoosalon_Service_Category.browse"
+              caption="mainMsg://menu_config.tatoosalon_Service_Category.browse"/>
+    </menu>
+</menu-config>

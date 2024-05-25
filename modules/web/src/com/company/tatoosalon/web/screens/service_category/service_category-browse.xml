@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://service_CategoryBrowse.caption"
+        focusComponent="service_CategoriesTable"
+        messagesPack="com.company.tatoosalon.web.screens.service_category">
+    <data readOnly="true">
+        <collection id="service_CategoriesDc"
+                    class="com.company.tatoosalon.entity.Service_Category">
+            <view extends="_local"/>
+            <loader id="service_CategoriesDl">
+                <query>
+                    <![CDATA[select e from tatoosalon_Service_Category e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="service_CategoriesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="service_CategoriesTable"
+                dataLoader="service_CategoriesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="service_CategoriesTable"
+                    width="100%"
+                    dataContainer="service_CategoriesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="service_CategoriesTable.create"/>
+                <button id="editBtn" action="service_CategoriesTable.edit"/>
+                <button id="removeBtn" action="service_CategoriesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

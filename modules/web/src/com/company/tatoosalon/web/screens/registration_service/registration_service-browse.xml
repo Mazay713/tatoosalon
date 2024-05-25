@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://registration_ServiceBrowse.caption"
+        focusComponent="registration_ServicesTable"
+        messagesPack="com.company.tatoosalon.web.screens.registration_service">
+    <data readOnly="true">
+        <collection id="registration_ServicesDc"
+                    class="com.company.tatoosalon.entity.Registration_Service">
+            <view extends="_local">
+                <property name="registration_id" view="_local">
+                    <property name="client_id" view="_local"/>
+                </property>
+                <property name="service_id" view="_local">
+                    <property name="employee_id" view="_local"/>
+                </property>
+            </view>
+            <loader id="registration_ServicesDl">
+                <query>
+                    <![CDATA[select e from tatoosalon_Registration_Service e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="registration_ServicesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="registration_ServicesTable"
+                dataLoader="registration_ServicesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="registration_ServicesTable"
+                    width="100%"
+                    dataContainer="registration_ServicesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="registration_id"/>
+                <column id="service_id"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="registration_ServicesTable.create"/>
+                <button id="editBtn" action="registration_ServicesTable.edit"/>
+                <button id="removeBtn" action="registration_ServicesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

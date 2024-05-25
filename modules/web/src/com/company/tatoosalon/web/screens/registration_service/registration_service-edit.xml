@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://registration_ServiceEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.tatoosalon.web.screens.registration_service">
+    <data>
+        <instance id="registration_ServiceDc"
+                  class="com.company.tatoosalon.entity.Registration_Service">
+            <view extends="_local">
+                <property name="registration_id" view="_local">
+                    <property name="client_id" view="_local"/>
+                </property>
+                <property name="service_id" view="_local">
+                    <property name="employee_id" view="_local"/>
+                </property>
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="registration_ServiceDc">
+            <column width="350px">
+                <pickerField id="registration_idField" property="registration_id">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <pickerField id="service_idField" property="service_id">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
